@@ -531,42 +531,16 @@ p {
   overflow: hidden;
 }
 
-/* Leaf sway — only the plant overlay moves, building stays fixed */
-@keyframes leafSway {
-  0%   { transform: scale(1.06) translate(0px,   0px); }
-  20%  { transform: scale(1.07) translate(10px,  -7px); }
-  45%  { transform: scale(1.06) translate(-7px,  11px); }
-  70%  { transform: scale(1.07) translate(12px,   4px); }
-  100% { transform: scale(1.06) translate(0px,   0px); }
-}
-
-/* Static building — no movement on the base layer */
+/* Static hero background */
 .hero__bg {
   position: absolute;
   inset: 0;
   background-image: url('https://images.unsplash.com/photo-1556983852-43bf21186b2a?w=1920&q=80');
   background-size: cover;
   background-position: center;
-  /* No animation — building stays locked */
 }
 
-/* Plant layer: same image, masked to the edges where leaves are,
-   animates independently to simulate foliage in the breeze */
-.hero__bg::before {
-  content: '';
-  position: absolute;
-  inset: -5%;
-  background-image: url('https://images.unsplash.com/photo-1556983852-43bf21186b2a?w=1920&q=80');
-  background-size: cover;
-  background-position: center;
-  animation: leafSway 9s ease-in-out infinite;
-  /* Mask hides the building centre; reveals only the plant-heavy edges */
-  -webkit-mask-image: radial-gradient(ellipse 70% 65% at 50% 50%, transparent 40%, black 72%);
-  mask-image: radial-gradient(ellipse 70% 65% at 50% 50%, transparent 40%, black 72%);
-  will-change: transform;
-}
-
-/* Dark gradient overlay — sits above both image layers */
+/* Dark gradient overlay */
 .hero__bg::after {
   content: '';
   position: absolute;
@@ -577,11 +551,6 @@ p {
     rgba(13,50,13,0.65) 55%,
     rgba(13,50,13,0.45) 100%
   );
-}
-
-/* Respect reduced-motion preference */
-@media (prefers-reduced-motion: reduce) {
-  .hero__bg::before { animation: none; }
 }
 
 .hero__content {

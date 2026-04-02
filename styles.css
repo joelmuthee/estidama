@@ -531,13 +531,23 @@ p {
   overflow: hidden;
 }
 
-/* Static hero background */
+/* Slow zoom hero background (Ken Burns effect) */
+@keyframes heroZoom {
+  0%   { transform: scale(1); }
+  100% { transform: scale(1.12); }
+}
+
 .hero__bg {
   position: absolute;
   inset: 0;
   background-image: url('https://images.unsplash.com/photo-1556983852-43bf21186b2a?w=1920&q=80');
   background-size: cover;
   background-position: center;
+  animation: heroZoom 20s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__bg { animation: none; }
 }
 
 /* Dark gradient overlay */

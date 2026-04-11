@@ -1716,8 +1716,7 @@ a[href^="mailto:"]:hover {
   .form-row { grid-template-columns: 1fr; }
   .about-values { grid-template-columns: 1fr; }
   .back-to-top { right: calc(2rem + 120px); }
-  .whatsapp-float span { display: none; }
-  .whatsapp-float { padding: 0.75rem; border-radius: 50%; }
+  .whatsapp-float { bottom: 1.25rem; right: 1.25rem; font-size: 0.75rem; padding: 0.65rem 1rem 0.65rem 0.8rem; }
   .impact-stats__grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
   .certs-strip__inner { gap: 0.5rem 1rem; }
 }
